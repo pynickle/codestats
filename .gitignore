@@ -1,0 +1,12 @@
+Thumbs.db
+
+[Dd]esktop.ini
+
+$RECYCLE.BIN/
+
+*.lnk
+bin
+
+.agents/
+
+skills-lock.json
