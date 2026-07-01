@@ -110,15 +110,32 @@ proc sortedFiles(stats: ProjectStats, view: var ViewState): seq[FileInfo] =
 
 proc drawBar(tb: var TerminalBuffer, x, y, code, total, width: int, fillColor: ForegroundColor, bright: bool) =
   if width <= 0: return
-  let filled = if total <= 0: 0 else: min(width, max(0, (code * width) div total))
+  if width <= 2:
+    let filled = if total <= 0: 0 else: min(width, max(0, (code * width) div total))
+    if filled > 0:
+      tb.setForegroundColor(fillColor, bright = bright)
+      for i in 0 ..< filled:
+        tb.write(x + i, y, "▓")
+    if filled < width:
+      tb.setForegroundColor(fgBlack)
+      for i in filled ..< width:
+        tb.write(x + i, y, "░")
+    tb.resetAttributes()
+    return
+  let innerWidth = width - 2
+  let filled = if total <= 0: 0 else: min(innerWidth, max(0, (code * innerWidth) div innerWidth))
+  tb.setForegroundColor(fgWhite)
+  tb.write(x, y, "│")
   if filled > 0:
     tb.setForegroundColor(fillColor, bright = bright)
     for i in 0 ..< filled:
-      tb.write(x + i, y, "█")
-  if filled < width:
+      tb.write(x + 1 + i, y, "▓")
+  if filled < innerWidth:
     tb.setForegroundColor(fgBlack)
-    for i in filled ..< width:
-      tb.write(x + i, y, "░")
+    for i in filled ..< innerWidth:
+      tb.write(x + 1 + i, y, "░")
+  tb.setForegroundColor(fgWhite)
+  tb.write(x + 1 + innerWidth, y, "│")
   tb.resetAttributes()
 
 proc drawText(tb: var TerminalBuffer, x, y: int, text: string, color = fgWhite, bright = false) =
