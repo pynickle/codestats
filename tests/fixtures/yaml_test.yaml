@@ -1,0 +1,13 @@
+
+version: 1
+# Pure comment
+name: test  # Mixed: code + comment
+
+config:
+  host: localhost
+  port: 8080
+
+database:  # Another mixed line
+  driver: postgres
+
+timeout: 30

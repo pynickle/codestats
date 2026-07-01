@@ -1,0 +1,20 @@
+= AsciiDoc Test
+:author: Test Author
+
+This is a paragraph with *bold* and _italic_ text.
+
+== Code Block
+
+[source,rust]
+----
+fn main() {
+    println!("Hello from AsciiDoc!");
+}
+----
+
+// This is a comment in AsciiDoc
+
+* List item 1
+* List item 2
+
+https://example.com[Link]

@@ -1,0 +1,13 @@
+/* CSS file with block-only comments */
+.container {
+    /* Multi-line block comment
+       spanning several lines
+       with style rules */
+    width: 100%; /* inline comment */
+
+    /* standalone comment */
+
+    padding: 20px; /* mixed: code + comment */
+}
+
+/* EOF block comment */
