@@ -1,4 +1,4 @@
-version       = "0.1.0"
+version       = "0.2.0"
 author        = "ENC_Euphony"
 description   = "TUI code line statistics tool"
 license       = "MIT"
