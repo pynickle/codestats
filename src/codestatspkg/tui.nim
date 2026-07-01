@@ -46,10 +46,10 @@ proc colColor(language: string): ForegroundColor =
   of "red": fgRed
   of "blue": fgBlue
   of "cyan": fgCyan
-  of "gray": fgBlack
+  of "green": fgGreen
   of "magenta": fgMagenta
-  of "orange", "brown": fgYellow
-  of "purple": fgMagenta
+  of "white": fgWhite
+  of "black": fgBlack
   else: fgWhite
 
 proc ratioColor(ratio: float): ForegroundColor =
